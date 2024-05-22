@@ -5,7 +5,7 @@ public class Solution {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        bw.write(br.readLine());
+        bw.write(br.readLine()); 
         bw.flush();
     }
 }
