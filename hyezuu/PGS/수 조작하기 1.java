@@ -6,6 +6,6 @@ class Solution {
             else if(c=='d')n+=10;
             else n-=10;
         }
-        return n;
+        return n; 
     }
 }
