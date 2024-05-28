@@ -4,6 +4,7 @@ class Solution {
         int answer = 0;
         Arrays.sort(tangerine);
         int[] arr = new int[tangerine[tangerine.length-1]+1];
+        //귤 개수 만큼 증가
         for(int i=0; i<tangerine.length; i++){
             arr[tangerine[i]]++;
         }
