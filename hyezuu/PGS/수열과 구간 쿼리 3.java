@@ -5,6 +5,6 @@ class Solution {
             arr[i] = arr[j];
             arr[j] = tmp;            
         }
-        return arr;
+        return arr; 
     }
 }
