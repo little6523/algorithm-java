@@ -1,4 +1,4 @@
-class Solution {
+class Solution { 
     public int solution(int n, String control) {
         for(char c : control.toCharArray()){
             if(c=='w')n++;
