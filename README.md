@@ -7,9 +7,10 @@
 
 ## ✅ 스터디 방식
 - 매일 총 2문제(개인 자유 1문제 + 공통 1문제) 푼다.
-- 공통 문제 : 바킹독 문제집에서 ✅되어 있는 문제(배열부터 시작)
+- 공통 문제 : 바킹독 문제집에서 ✅되어 있는 문제(배열부터 시작) 또는 코딩기초트레이닝
   - 문제집 : https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook.md
-- 매주 금요일 저녁 디스코드에서 음성으로 코드리뷰를 진행 한다.
+  - 문제집 : https://school.programmers.co.kr/learn/challenges/training?order=acceptance_desc&languages=javascript
+- 매주 1회 저녁 디스코드에서 음성으로 코드리뷰를 진행 한다.
 <br />
 
 ## ✅ 참여 방법
@@ -17,7 +18,7 @@
 2. 생성된 원격 저장소에 `이름` 혹은 `github ID`로 폴더를 생성한다.
 3. 생성된 폴더에 자신의 소스코드를 업로드 한다. (폴더명에 콜론":" 안됩니다!)
 4. 이때 `commit 규칙`을 지키도록한다!
-5. 원본 저장소로 `Pull Request`를 한다. (매주 3문제 이상, 매주 **토요일**에 Merge예정)
+5. 원본 저장소로 `Pull Request`를 한다. **매일 2문제 이상, 매일 Merge 예정**)
 6. 다른 사람들의 PR을 보고 자유롭게 코드리뷰를 한다.
 7. ***주의!! 기존 폴더를 지우면 안됩니다!!*** 개인 폴더 내부만 수정해주세요 :)
 
