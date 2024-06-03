@@ -1,0 +1,1 @@
+fun solution(myString:String, indicies: IntArray):String = myString.filterIndexed { index, _ -> idx !in indicies }
