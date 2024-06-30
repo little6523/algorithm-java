@@ -21,28 +21,7 @@ public class Main {
             while(!stack.isEmpty()) {
                 // 스택 최상단에 위치한 탑의 높이보다 입력한 탑의 높이가 더 큰 경우
                 if(topHeight < stack.peek()[1]) {
-                    String s = String.valueOf(stack.peek()[0]);
-                    sb.append(s).append(" ");
-                    break;
-                }
-                // 입력한 탑의 높이보다 스택 최상단에 위치한 탑의 높이가 더 큰 경우
-                stack.pop();
-            }
-
-            // 스택이 비어있는 경우
-            if(stack.isEmpty()){
-                sb.append("0").append(" ");
-            }
-
-            stack.push(new int[]{i, topHeight});
-        }
-
-        System.out.println(sb);
-        br.close();
-    }
-}
-
-/* 출력 초과
+    이
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
