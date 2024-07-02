@@ -6,26 +6,20 @@ import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Main T = new Main();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
 
-        System.out.print(T.solution(n));
+        System.out.print(card2(n));
     }
 
-    public int solution(int n) {
-        Queue<Integer> q = new LinkedList<>();
-        int answer= 1;
-        for(int i=1; i<=n; i++){
-            q.offer(i);
-        }
+    public static int card2(int n) {
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 1; i <= n; i++) queue.offer(i);
 
-        while(q.size()>1){
-            q.poll();
-            answer = q.poll();
-            q.offer(answer);
+        while (queue.size() > 1) {
+            queue.poll();
+            queue.offer(queue.poll());
         }
-        return answer;
+        return queue.poll();
     }
 }
-
