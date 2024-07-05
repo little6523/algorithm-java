@@ -70,16 +70,18 @@ public class Main {
 			if (!isError) {
 				StringBuilder sb = new StringBuilder();
 				sb.append("[");
-				if (isReverse) {
-					while (deque.size() != 1) {
-						sb.append(deque.pollLast()).append(",");
+				if (deque.size() > 0) {
+					if (isReverse) {
+						sb.append(deque.pollLast());
+						while (!deque.isEmpty()) {
+							sb.append(",").append(deque.pollLast());
+						}
+					} else {
+						sb.append(deque.pollFirst());
+						while (!deque.isEmpty()) {
+							sb.append(",").append(deque.pollFirst());
+						}
 					}
-					sb.append(deque.pollLast());
-				} else {
-					while (deque.size() != 1) {
-						sb.append(deque.pollFirst()).append(",");
-					}
-					sb.append(deque.pollFirst());
 				}
 				sb.append("]");
 				System.out.println(sb.toString());
