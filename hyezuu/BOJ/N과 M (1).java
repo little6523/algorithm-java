@@ -5,6 +5,7 @@ import java.util.Stack;
 import java.util.StringTokenizer;
 
 class Main {
+    static Stack<Integer> stack;
     static boolean[] visited;
     static int N;
     static int M;
@@ -19,22 +20,24 @@ class Main {
     }
 
     private static void solution(int N, int M) {
-        Stack<Integer> stack = new Stack<>();
+        stack = new Stack<>();
         visited = new boolean[N + 1];
 
-        recursion(stack);
+        recursion(1);
     }
 
-    private static void recursion(Stack<Integer> stack) {
+    private static void recursion(int pos) {
         if (stack.size() == M) print(stack);
+
         for (int i = 1; i <= N; i++) {
-            if (!visited[i]) {
-                visited[i] = true;
-                stack.push(i);
-                recursion(stack);
-                stack.pop();
-                visited[i] = false;
-            }
+            if(visited[i]) continue;
+
+            visited[i] = true;
+            stack.push(i);
+            recursion(i);
+            stack.pop();
+            visited[i] = false;
+
         }
     }
 
