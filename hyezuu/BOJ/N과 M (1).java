@@ -20,7 +20,10 @@ class Main {
     }
 
     private static void recursion() {
-        if (stack.size() == M) print(stack);
+        if (stack.size() == M){
+            print(stack);
+            return;
+        }
         for (int i = 1; i <= N; i++) {
             if (visited[i]) continue;
 
