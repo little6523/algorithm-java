@@ -24,6 +24,7 @@ class Main {
             }
         }
         System.out.print(bfs(board, M, N, H));
+        br.close();
     }
 
     private static int bfs(int[][][] board, int M, int N, int H) {
@@ -31,20 +32,23 @@ class Main {
         int[] dy = {-1, 0, 1, 0, 0, 0};
         int[] dz = {0, 0, 0, 0, -1, +1};
 
+        int unRipe = 0;
         Queue<int[]> q = new LinkedList<>();
         for (int i = 0; i < H; i++) {
             for (int j = 0; j < N; j++) {
                 for (int k = 0; k < M; k++) {
                     if (board[i][j][k] == 1) {
                         q.offer(new int[]{i, j, k});
+                    } else if (board[i][j][k] == 0) {
+                        unRipe++;
                     }
                 }
             }
         }
-
+        int pos = 0;
         while (!q.isEmpty()) {
             int[] cur = q.poll();
-            int pos = board[cur[0]][cur[1]][cur[2]];
+            pos = board[cur[0]][cur[1]][cur[2]];
             for (int i = 0; i < 6; i++) {
                 int nx = cur[2] + dx[i];
                 int ny = cur[1] + dy[i];
@@ -52,24 +56,13 @@ class Main {
 
                 if (nx < 0 || nx >= M || ny < 0 || ny >= N || nz < 0 || nz >= H) continue;
                 if (board[nz][ny][nx] == 0) {
+                    unRipe--;
                     q.offer(new int[]{nz, ny, nx});
-                    board[nz][ny][nx] = pos+1;
+                    board[nz][ny][nx] = pos + 1;
                 }
             }
         }
 
-        int max = -1;
-
-        for (int i = 0; i < H; i++) {
-            for (int j = 0; j < N; j++) {
-                for (int k = 0; k < M; k++) {
-                    if (board[i][j][k] == 0) return -1;
-                    else max = Math.max(max, board[i][j][k]);
-                }
-            }
-        }
-        return max-1;
+        return unRipe > 0 ? -1 : pos-1;
     }
-
-
 }
