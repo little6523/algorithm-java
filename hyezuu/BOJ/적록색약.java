@@ -6,75 +6,55 @@ import java.util.Queue;
 
 class Main {
     public static void main(String[] args) throws IOException {
-        Main main = new Main();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        char[][] grid = new char[n][n];
+        int N = Integer.parseInt(br.readLine());
+        char[][] board = new char[N][N];
 
-        for (int i = 0; i < n; i++) {
-            String tmp = br.readLine();
-            for (int j = 0; j < n; j++) {
-                grid[i][j] = tmp.charAt(j);
-            }
+        for (int i = 0; i < N; i++) {
+            board[i] = br.readLine().toCharArray();
         }
 
-        System.out.print(main.solution(n, grid));
-        br.close();
+        System.out.println(bfs(board, N, true)+" "+bfs(board, N, false));
     }
 
-    public String solution(int n, char[][] graph) {
-        boolean[][] visited = new boolean[n][n];
+    private static int bfs(char[][] board, int N, boolean isGeneral) {
         Queue<int[]> q = new LinkedList<>();
-        q.offer(new int[]{0, 0});
-        visited[0][0] = true;
-        int cnt = 1;
+        boolean[][] visited = new boolean[N][N];
+
+        int cnt = 0;
+
         int[] dx = {-1, 0, 1, 0};
         int[] dy = {0, 1, 0, -1};
-        StringBuilder sb = new StringBuilder();
 
-        boolean flag = false;
-        while (!q.isEmpty()) {
-            int[] tmp = q.poll();
-            char cur = graph[tmp[0]][tmp[1]];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (!visited[i][j]) {
+                    q.offer(new int[]{i, j});
+                    cnt++;
+                    while (!q.isEmpty()) {
+                        int[] cur = q.poll();
+                        for (int k = 0; k < 4; k++) {
+                            int nx = cur[0] + dx[k];
+                            int ny = cur[1] + dy[k];
 
-            for (int i = 0; i < 4; i++) {
-                int nx = tmp[0] + dx[i];
-                int ny = tmp[1] + dy[i];
-
-                if (nx < 0 || nx >= n || ny < 0 || ny >= n) continue;
-                if (visited[nx][ny]) continue;
-                if (graph[nx][ny] == cur) {
-                    q.offer(new int[]{nx, ny});
-                    visited[nx][ny] = true;
-                } else if (flag) {
-                    if ((cur == 'G' && graph[nx][ny] == 'R') || (cur == 'R' && graph[nx][ny] == 'G')) {
-                        q.offer(new int[]{nx, ny});
-                        visited[nx][ny] = true;
-                    }
-                }
-
-            }
-            if (q.isEmpty()) {
-                outer : for (int i = 0; i < n; i++) {
-                    for (int j = 0; j < n; j++) {
-                        if (!visited[i][j]) {
-                            q.offer(new int[]{i, j});
-                            visited[i][j] = true;
-                            cnt++;
-                            break outer;
+                            if (nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
+                            if (visited[nx][ny]) continue;
+                            if (isGeneral(board[i][j], board[nx][ny], isGeneral)) {
+                                q.offer(new int[]{nx, ny});
+                                visited[nx][ny] = true;
+                            }
                         }
                     }
                 }
             }
-            if (q.isEmpty() && !flag) {
-                flag = true;
-                q.offer(new int[]{0, 0});
-                visited = new boolean[n][n];
-                visited[0][0] = true;
-                sb.append(cnt).append(" ");
-                cnt = 1;
-            }
         }
-        return sb.append(cnt).toString();
+        return cnt;
+    }
+
+    static boolean isGeneral(char ch1, char ch2, boolean chk) {
+        boolean isGeneral = ch1 == ch2;
+
+        if(chk) return isGeneral ;
+        return  isGeneral || (ch1 == 'R' && ch2 == 'G') || (ch1 == 'G' && ch2 == 'R');
     }
 }
