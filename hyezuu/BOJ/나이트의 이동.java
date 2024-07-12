@@ -2,8 +2,6 @@ import java.io.*;
 import java.util.*;
 
 class Main {
-    static Queue<int[]> q = new LinkedList<>();
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
