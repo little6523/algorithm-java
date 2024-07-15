@@ -71,7 +71,7 @@ public class 벽부수고이동하기_2206 {
                     visited[destroy][nx][ny] = true;
                     queue.offer(new int[]{nx, ny, dist + 1, destroy});
                 } else {
-                    // 다음 칸이 벽이면서 지금까지 한 번도 벽을 부수지 않았고, 벽을 부순 방문 배열에서 방문한 경우
+                    // 다음 칸이 벽이면서 지금까지 한 번도 벽을 부수지 않았고, 벽을 부순 방문 배열에서 방문하지 않은 경우
                     if (destroy == 0 && !visited[destroy + 1][nx][ny]) {
                         visited[destroy + 1][nx][ny] = true;
                         queue.offer(new int[]{nx, ny, dist + 1, destroy + 1});
