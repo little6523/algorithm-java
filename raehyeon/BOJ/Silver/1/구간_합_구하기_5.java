@@ -20,8 +20,10 @@ public class Main {
 
         for(int i=0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
+            // (x0, y0)
             int x0 = Integer.parseInt(st.nextToken());
             int y0 = Integer.parseInt(st.nextToken());
+            // (x1, y1)
             int x1 = Integer.parseInt(st.nextToken());
             int y1 = Integer.parseInt(st.nextToken());
 
