@@ -1,0 +1,1 @@
+fun solution(arr:IntArray, idx: Int): Int = (idx ..< arr.size).firstOrNull { arr[it] == 1 } ?: -1

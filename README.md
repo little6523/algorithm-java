@@ -1,7 +1,7 @@
 # 💻 algorithm study in Ormi5 💯
 매일 2문제씩 풀자!
 * 기간 : 2023-05-16 ~
-* 코드리뷰 : 매주 금요일 저녁
+* 코드리뷰 : 매주 수요일 저녁
 * 참여 방법 설명 글 : https://waytocse.tistory.com/59
 <br />
 
@@ -51,8 +51,8 @@ git commit -m "[BOJ] Hello World / 브론즈5 " -m "https://www.acmicpc.net/prob
 <br />
 
 ## ✅ PR 규칙
-- PR 제목: 이름 / 주차 / 몇 문제
--  ```gildong hong / 5월 3주차 / 4문제 ```
+- PR 제목: 이름 / 날짜 / 몇 문제
+-  ```gildong hong / 5월 30일 / 4문제 ```
 -  comment는 자유이나 가능하다면, 이번주에 풀었던 문제의 알고리즘 분류가 어떻게 되는지, <br> 어떤 문제가 어려웠는지 회고를 작성한다면 개인에게도 도움되고 다른 코드 리뷰어가 참고하기 좋을 것 같습니다 :)
 
 <br />
